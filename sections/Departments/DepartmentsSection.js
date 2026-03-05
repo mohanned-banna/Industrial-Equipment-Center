@@ -127,7 +127,8 @@ function totalPages() {
 }
 
 function clampPage() {
-  page = Math.max(0, Math.min(page, totalPages() - 1));
+  const total = totalPages();
+  page = (page + total) % total;
 }
 
 function sliceForPage() {
@@ -185,11 +186,13 @@ function renderGrid() {
 }
 
 function setArrowState() {
+  // Arrow state is always enabled with looping, 
+  // but we could add visual feedback if needed.
   const prev = byId("depts-prev");
   const next = byId("depts-next");
 
-  if (prev) prev.disabled = (page === 0);
-  if (next) next.disabled = (page === totalPages() - 1);
+  if (prev) prev.disabled = false;
+  if (next) next.disabled = false;
 }
 
 function renderAll() {

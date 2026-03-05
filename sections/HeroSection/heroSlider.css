@@ -15,7 +15,7 @@ body {
   position: relative;
   height: 340px;
   overflow: hidden;
-  margin-top: 70px ;
+  margin-top: 70px;
 }
 
 @media (min-width: 768px) {
@@ -73,10 +73,10 @@ body {
 }
 
 .slide-title {
-  font-size: clamp(1.6rem, 4vw, 2.6rem);
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 0.6rem;
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Hero title can be larger */
+  font-weight: var(--section-title-weight);
+  line-height: 1.1;
+  margin-bottom: 0.8rem;
   transform: translateY(20px);
   opacity: 0;
   transition:
@@ -85,9 +85,9 @@ body {
 }
 
 .slide-subtitle {
-  font-size: clamp(0.85rem, 1.8vw, 1rem);
-  color: #cbd5e1;
-  margin-bottom: 1.6rem;
+  font-size: var(--section-subtitle-size);
+  color: var(--text-light);
+  margin-bottom: 2rem;
   transform: translateY(20px);
   opacity: 0;
   transition:
@@ -120,7 +120,7 @@ body {
   gap: 0.4rem;
   padding: 0.55rem 1.5rem;
   border-radius: 6px;
-  font-family: "Cairo", sans-serif;
+  font-family: var(--font-main);
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
@@ -159,9 +159,48 @@ body {
   opacity: 0.85;
 }
 
-/* ── Nav Arrows — hidden to match screenshot ── */
+/* ── Nav Arrows ── */
 .nav-arrow {
-  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.nav-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #f5a623;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-arrow svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nav-prev {
+  left: 20px;
+}
+
+.nav-next {
+  right: 20px;
 }
 
 /* ── Indicators ── */

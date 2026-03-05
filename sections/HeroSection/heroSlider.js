@@ -1,4 +1,5 @@
-/* ── Data ── */
+(function() {
+  /* ── Data ── */
   const slides = [
     {
       image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80',
@@ -25,6 +26,8 @@
   const hero = document.getElementById('hero');
   const indicators = document.getElementById('indicators');
 
+  if (!hero || !indicators) return;
+
   slides.forEach((s, i) => {
     /* Slide */
     const slide = document.createElement('div');
@@ -36,8 +39,8 @@
           <h2 class="slide-title">${s.title}</h2>
           <p class="slide-subtitle">${s.subtitle}</p>
           <div class="slide-buttons">
-            <button class="btn btn-primary" onclick="scrollTo('contact')">&#9658; تواصل معنا</button>
-            <button class="btn btn-secondary" onclick="scrollTo('about')">&#9658; اعرت موقفنا</button>
+            <button class="btn btn-primary" onclick="scrollToSection('contact')">&#9658; تواصل معنا</button>
+            <button class="btn btn-secondary" onclick="scrollToSection('about')">&#9658; اعرف الموقع</button>
           </div>
         </div>
       </div>
@@ -57,11 +60,17 @@
   function getDots()   { return document.querySelectorAll('.dot'); }
 
   function goTo(index) {
-    getSlides()[current].classList.remove('active');
-    getDots()[current].classList.remove('active');
+    const allSlides = getSlides();
+    const allDots = getDots();
+    if (!allSlides[current] || !allDots[current]) return;
+
+    allSlides[current].classList.remove('active');
+    allDots[current].classList.remove('active');
+    
     current = (index + slides.length) % slides.length;
-    getSlides()[current].classList.add('active');
-    getDots()[current].classList.add('active');
+    
+    allSlides[current].classList.add('active');
+    allDots[current].classList.add('active');
     resetTimer();
   }
 
@@ -70,14 +79,20 @@
     timer = setInterval(() => goTo(current + 1), 5000);
   }
 
-  function scrollTo(id) {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  }
-
   /* ── Controls ── */
-  document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
-  document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  if (prevBtn) prevBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    goTo(current - 1);
+  });
+  
+  if (nextBtn) nextBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    goTo(current + 1);
+  });
 
   /* ── Auto-play ── */
   resetTimer();
+})();
