@@ -17,40 +17,6 @@
     <!-- Header -->
     <header id="site-header" class="site-header">
       <div class="container">
-        <!-- Top bar -->
-        <div class="topbar" id="topbar">
-          <a
-            class="admin-link"
-            href="/admin/login"
-            title="لوحة التحكم"
-            aria-label="لوحة التحكم"
-          >
-            <span class="icon" aria-hidden="true">⚙</span>
-            <span>لوحة التحكم</span>
-          </a>
-
-          <div class="contact-links">
-            <a
-              id="phone-link"
-              class="contact-link"
-              href="tel:"
-              aria-label="اتصال"
-            >
-              <span class="icon" aria-hidden="true">📞</span>
-              <span id="phone-text"></span>
-            </a>
-            <a
-              id="email-link"
-              class="contact-link"
-              href="mailto:"
-              aria-label="إيميل"
-            >
-              <span class="icon" aria-hidden="true">✉</span>
-              <span id="email-text"></span>
-            </a>
-          </div>
-        </div>
-
         <!-- Main nav -->
         <div class="mainbar">
           <div class="brand">
@@ -62,7 +28,11 @@
               <h1>مركز ربيع المعدات الصناعية</h1>
               <p>جدة - المملكة العربية السعودية</p>
             </div> -->
-            <img src="assests/logo.png" alt="this is logo" class="logo" />
+            <img
+              src="assests/logo-transparent.png"
+              alt="this is logo"
+              class="logo"
+            />
           </div>
 
           <!-- Desktop Navigation -->
@@ -106,24 +76,22 @@
 
     <!-- Include these in your page -->
 
-   <section id="hero">
+    <section id="hero">
+      <!-- Slides injected by JS -->
 
-  <!-- Slides injected by JS -->
+      <!-- Prev Arrow -->
+      <button class="nav-arrow nav-prev" id="prevBtn" aria-label="السابق">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+      </button>
 
-  <!-- Prev Arrow -->
-  <button class="nav-arrow nav-prev" id="prevBtn" aria-label="السابق">
-    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-  </button>
+      <!-- Next Arrow -->
+      <button class="nav-arrow nav-next" id="nextBtn" aria-label="التالي">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg>
+      </button>
 
-  <!-- Next Arrow -->
-  <button class="nav-arrow nav-next" id="nextBtn" aria-label="التالي">
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-  </button>
-
-  <!-- Dots -->
-  <div class="indicators" id="indicators"></div>
-
-</section>
+      <!-- Dots -->
+      <div class="indicators" id="indicators"></div>
+    </section>
     <!-- about.html -->
     <section id="about" class="about">
       <div class="about-container">
@@ -148,11 +116,41 @@
       </div>
     </section>
 
-    <link rel="stylesheet" href="aboutStyle.css" />
-    <script defer src="aboutScript.js"></script>
+    <!-- DepartmentsSection.html -->
+    <section id="departments" class="depts">
+      <div class="depts-wrap">
+        <!-- Title row with lines -->
+        <div class="depts-title-row js-reveal">
+          <div class="depts-line"></div>
+          <h2 class="depts-title">أقسام المركز</h2>
+          <div class="depts-line"></div>
+        </div>
+
+        <p id="depts-subtitle" class="depts-subtitle js-reveal">
+          <!-- injected by JS -->
+        </p>
+
+        <!-- Slider area -->
+        <div class="depts-slider js-reveal">
+          <button class="nav-arrow left" id="depts-prev" aria-label="السابق">
+            ‹
+          </button>
+
+          <div class="depts-grid" id="depts-grid">
+            <!-- cards injected by JS -->
+          </div>
+
+          <button class="nav-arrow right" id="depts-next" aria-label="التالي">
+            ›
+          </button>
+        </div>
+      </div>
+    </section>
 
     <script src="sections/Header/headerScript.js"></script>
     <script src="sections/HeroSection/heroSlider.js"></script>
     <script defer src="sections/About/aboutScript.js"></script>
+    <link rel="stylesheet" href="sections/Departments/DepartmentsSection.css" />
+    <script defer src="sections/Departments/DepartmentsSection.js"></script>
   </body>
 </html>

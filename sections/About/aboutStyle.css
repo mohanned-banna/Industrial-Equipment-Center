@@ -54,7 +54,7 @@
 .about-desc{
   max-width: 920px;
   margin: 0 auto 18px;
-  color: var(--text);
+  color: var(--text) !important;
   font-size: 15px;
   line-height: 1.9;
 }
