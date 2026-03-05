@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Slider</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="sections/Header/headerStyle.css" />
+    <link rel="stylesheet" href="sections/HeroSection/heroSlider.css" />
+    <link rel="stylesheet" href="sections/About/aboutStyle.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="site-header" class="site-header">
+      <div class="container">
+        <!-- Top bar -->
+        <div class="topbar" id="topbar">
+          <a
+            class="admin-link"
+            href="/admin/login"
+            title="لوحة التحكم"
+            aria-label="لوحة التحكم"
+          >
+            <span class="icon" aria-hidden="true">⚙</span>
+            <span>لوحة التحكم</span>
+          </a>
+
+          <div class="contact-links">
+            <a
+              id="phone-link"
+              class="contact-link"
+              href="tel:"
+              aria-label="اتصال"
+            >
+              <span class="icon" aria-hidden="true">📞</span>
+              <span id="phone-text"></span>
+            </a>
+            <a
+              id="email-link"
+              class="contact-link"
+              href="mailto:"
+              aria-label="إيميل"
+            >
+              <span class="icon" aria-hidden="true">✉</span>
+              <span id="email-text"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Main nav -->
+        <div class="mainbar">
+          <div class="brand">
+            <!-- <div class="logo-wrap">
+              <div class="logo-square"></div>
+            </div>
+
+            <div class="brand-text">
+              <h1>مركز ربيع المعدات الصناعية</h1>
+              <p>جدة - المملكة العربية السعودية</p>
+            </div> -->
+            <img src="assests/logo.png" alt="this is logo" class="logo" />
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="nav-desktop" aria-label="القائمة الرئيسية">
+            <button class="nav-btn" data-scroll="hero">الرئيسية</button>
+            <button class="nav-btn" data-scroll="about">من نحن</button>
+            <button class="nav-btn" data-scroll="departments">أقسامنا</button>
+            <button class="nav-btn" data-scroll="gallery">معرض الصور</button>
+            <button class="nav-btn" data-scroll="map">موقعنا</button>
+            <button class="nav-btn" data-scroll="contact">تواصل معنا</button>
+          </nav>
+
+          <!-- Mobile menu button -->
+          <button
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="فتح/إغلاق القائمة"
+            aria-expanded="false"
+          >
+            <span id="menu-icon" aria-hidden="true">☰</span>
+          </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav id="menu-mobile" class="nav-mobile" aria-label="القائمة للموبايل">
+          <button class="nav-btn mobile" data-scroll="hero">الرئيسية</button>
+          <button class="nav-btn mobile" data-scroll="about">من نحن</button>
+          <button class="nav-btn mobile" data-scroll="departments">
+            أقسامنا
+          </button>
+          <button class="nav-btn mobile" data-scroll="gallery">
+            معرض الصور
+          </button>
+          <button class="nav-btn mobile" data-scroll="map">موقعنا</button>
+          <button class="nav-btn mobile" data-scroll="contact">
+            تواصل معنا
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Include these in your page -->
+
+   <section id="hero">
+
+  <!-- Slides injected by JS -->
+
+  <!-- Prev Arrow -->
+  <button class="nav-arrow nav-prev" id="prevBtn" aria-label="السابق">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+
+  <!-- Next Arrow -->
+  <button class="nav-arrow nav-next" id="nextBtn" aria-label="التالي">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+
+  <!-- Dots -->
+  <div class="indicators" id="indicators"></div>
+
+</section>
+    <!-- about.html -->
+    <section id="about" class="about">
+      <div class="about-container">
+        <!-- Title with lines -->
+        <div class="about-title-wrap js-reveal">
+          <div class="line"></div>
+          <h2 id="about-title" class="about-title">نبذة عن المركز</h2>
+          <div class="line"></div>
+        </div>
+
+        <!-- Description (3 lines) -->
+        <div class="about-desc js-reveal">
+          <p id="about-p1"></p>
+          <p id="about-p2"></p>
+          <p id="about-p3"></p>
+        </div>
+
+        <!-- Feature bar -->
+        <div id="about-bar" class="about-bar js-reveal">
+          <!-- Items injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <link rel="stylesheet" href="aboutStyle.css" />
+    <script defer src="aboutScript.js"></script>
+
+    <script src="sections/Header/headerScript.js"></script>
+    <script src="sections/HeroSection/heroSlider.js"></script>
+    <script defer src="sections/About/aboutScript.js"></script>
+  </body>
+</html>

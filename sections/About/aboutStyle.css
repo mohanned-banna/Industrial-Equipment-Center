@@ -1,0 +1,144 @@
+/* aboutStyle.css */
+:root{
+  --bg: #eef2f5;
+  --brand: #1e3a5f;
+  --text: #4b5563;
+  --bar: #dfe6ed;
+  --divider: #c8d2dc;
+  --accent: #f5a623;
+}
+
+*{ box-sizing: border-box; }
+
+.about{
+  background: var(--bg);
+  padding: 40px 0 28px;
+  direction: rtl;
+}
+
+.about-container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: center;
+}
+
+/* Title with lines */
+.about-title-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+
+.about-title{
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--brand);
+}
+
+.line{
+  height: 1px;
+  width: 280px;
+  background: rgba(30,58,95,.25);
+}
+
+@media (max-width: 900px){
+  .line{ width: 140px; }
+  .about-title{ font-size: 24px; }
+}
+
+/* Description */
+.about-desc{
+  max-width: 920px;
+  margin: 0 auto 18px;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.about-desc p{
+  margin: 6px 0;
+}
+
+/* Feature bar like the image */
+.about-bar{
+  margin: 14px auto 0;
+  max-width: 980px;
+  background: var(--bar);
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.05);
+}
+
+.about-item{
+  padding: 18px 10px 14px;
+  text-align: center;
+}
+
+.about-item:not(:last-child){
+  border-left: 1px solid var(--divider);
+}
+
+.about-icon{
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 10px;
+  display: grid;
+  place-items: center;
+}
+
+.about-label{
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--brand);
+}
+
+/* Responsive: 2x2 on small screens */
+@media (max-width: 820px){
+  .about-bar{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-item:nth-child(2){
+    border-left: none;
+  }
+  .about-item:nth-child(1),
+  .about-item:nth-child(2){
+    border-bottom: 1px solid var(--divider);
+  }
+}
+
+/* =========================
+   Motion-like animations
+   ========================= */
+
+/* Base hidden state */
+.js-reveal{
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity .5s ease,
+    transform .5s ease;
+  transition-delay: var(--delay, 0ms);
+  will-change: opacity, transform;
+}
+
+/* Visible */
+.js-reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .js-reveal{
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}

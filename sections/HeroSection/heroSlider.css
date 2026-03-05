@@ -1,0 +1,194 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+}
+
+/* ── Hero Section ── */
+#hero {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+  margin-top: 70px ;
+}
+
+@media (min-width: 768px) {
+  #hero {
+    height: 380px;
+    margin-top: 100px;
+  }
+}
+
+/* ── Slides ── */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dark blue overlay matching the screenshot */
+.slide-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 25, 60, 0.72);
+}
+
+/* ── Content — centered ── */
+.slide-content {
+  position: relative;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-text {
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+
+.slide-title {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+  transform: translateY(20px);
+  opacity: 0;
+  transition:
+    transform 0.5s ease 0.2s,
+    opacity 0.5s ease 0.2s;
+}
+
+.slide-subtitle {
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  color: #cbd5e1;
+  margin-bottom: 1.6rem;
+  transform: translateY(20px);
+  opacity: 0;
+  transition:
+    transform 0.5s ease 0.3s,
+    opacity 0.5s ease 0.3s;
+}
+
+.slide-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  transform: translateY(20px);
+  opacity: 0;
+  transition:
+    transform 0.5s ease 0.4s,
+    opacity 0.5s ease 0.4s;
+}
+
+.slide.active .slide-title,
+.slide.active .slide-subtitle,
+.slide.active .slide-buttons {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.5rem;
+  border-radius: 6px;
+  font-family: "Cairo", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Orange = primary (تواصل معنا) */
+.btn-primary {
+  background: #f5a623;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #d68f1a;
+}
+
+/* Blue = secondary (اعرف الموقع) */
+.btn-secondary {
+  background: #1a56db;
+  color: #fff;
+}
+.btn-secondary:hover {
+  background: #1440b0;
+}
+
+/* Arrow icon inside button */
+.btn-arrow {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+/* ── Nav Arrows — hidden to match screenshot ── */
+.nav-arrow {
+  display: none;
+}
+
+/* ── Indicators ── */
+.indicators {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 10;
+}
+
+.dot {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    width 0.3s;
+  width: 8px;
+  padding: 0;
+}
+
+.dot.active {
+  background: #f5a623;
+  width: 24px;
+}
