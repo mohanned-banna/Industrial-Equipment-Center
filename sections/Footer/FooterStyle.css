@@ -1,0 +1,72 @@
+/* FooterStyle.css */
+
+.footer {
+  background: linear-gradient(180deg, #0b2f55, #051c33);
+  padding: 24px 0;
+  color: white;
+  direction: rtl;
+  font-family: var(--font-main);
+}
+
+.footer-container{
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.footer-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footer-text{
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Social */
+
+.footer-social{
+  display: flex;
+  gap: 8px;
+}
+
+.social-icon{
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon svg{
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+/* colors */
+
+.whatsapp{
+  background: #f4b400;
+}
+
+.instagram{
+  background: #ff9b2f;
+}
+
+.skype{
+  background: #4aa3ff;
+}
+
+/* hover */
+
+.social-icon:hover{
+  transform: translateY(-2px);
+  transition: 0.2s;
+}

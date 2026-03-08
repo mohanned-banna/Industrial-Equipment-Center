@@ -29,7 +29,7 @@ body {
 .section-title-wrap {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 18px;
   margin-bottom: 12px;
 }
@@ -45,7 +45,7 @@ body {
 .section-line {
   height: 2px;
   flex: 1;
-  max-width: 300px;
+  max-width: 33.5%;
   background: currentColor;
   opacity: 0.2;
 }
@@ -70,9 +70,7 @@ body {
   box-sizing: border-box;
 }
 
-body{
-  height: 500vh
-}
+
 
 .site-header {
   position: fixed;
@@ -134,8 +132,8 @@ body{
   align-items: center;
   justify-content: center;
   padding: 16px 0 0 0;
-  gap: 32px;
-  height: 70px;
+  gap: 70px;
+  height: 79px;
 }
 
 .brand {
@@ -197,7 +195,7 @@ body{
   text-align: right;
   padding: 0px 20px;
   position: relative;
-  padding-bottom: 5px;
+  
 }
 
 .nav-btn:hover,
@@ -205,6 +203,10 @@ body{
   color: var(--accent);
   background: rgba(0, 0, 0, 0.2);
   padding: 16px 20px;
+  box-sizing: border-box;
+  margin-left: -0.5px;
+  display: inline-block;
+  height: auto;
 }
 
 .nav-btn.active::after {
@@ -296,7 +298,17 @@ body{
   }
   .nav-btn {
       border-right: 0.7px solid white;
+      display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
   }
+  .nav-btn:hover,
+.nav-btn.active {
+  
+  border-left: 0.7px solid white;
+  
+}
   .logo{
       padding-bottom: 20px;
 

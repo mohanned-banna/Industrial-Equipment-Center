@@ -95,8 +95,8 @@
   }
 
   function applyDelays() {
-    const titleWrap = qs("#about .section-title-wrap");
-    const desc = qs("#about-desc");
+    const titleWrap = qs(".about-title-wrap");
+    const desc = qs(".about-desc");
     const bar = qs("#about-bar");
 
     if (titleWrap) titleWrap.style.setProperty("--delay", "0ms");

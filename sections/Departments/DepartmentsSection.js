@@ -1,8 +1,5 @@
-// DepartmentsSection.js (8 items per slide: 4 top + 4 bottom)
+// DepartmentsSection.js (Swiper version)
 
-// =======================
-// Data (ضع هنا 14 قسم)
-// =======================
 const DepartmentsData = [
   { id: 1, name: "معدات دق الخرسانة", icon: "gearBulb" },
   { id: 2, name: "أدوات وبنّاء", icon: "tools" },
@@ -12,20 +9,14 @@ const DepartmentsData = [
   { id: 6, name: "معدات سباكة", icon: "printer" },
   { id: 7, name: "معدات هيدروليك", icon: "forklift" },
   { id: 8, name: "تحضير/رمل/قص", icon: "gears" },
-
   { id: 9, name: "عدد محلات", icon: "axe" },
   { id: 10, name: "سهولة الوصول", icon: "gear" },
   { id: 11, name: "معدات كهرباء", icon: "bolt" },
   { id: 12, name: "معدات سلامة", icon: "shield" },
-
-  // ✅ أضف قسمين (13, 14)
   { id: 13, name: "قسم جديد 13", icon: "gear" },
   { id: 14, name: "قسم جديد 14", icon: "tools" },
 ];
 
-// =======================
-// Icons (نفس اللي عندك)
-// =======================
 function iconSVG(type) {
   const W = "#ffffff";
   const O = "#f5a623";
@@ -110,116 +101,92 @@ function iconSVG(type) {
   }
 }
 
-// =======================
-// Slider config
-// =======================
-const PER_PAGE = 8; // ✅ ثابت: 4 فوق + 4 تحت
-let page = 0;
-let observer = null;
-
-// =======================
-// Helpers
-// =======================
-function byId(id) { return document.getElementById(id); }
-
-function totalPages() {
-  return Math.max(1, Math.ceil(DepartmentsData.length / PER_PAGE));
-}
-
-function clampPage() {
-  const total = totalPages();
-  page = (page + total) % total;
-}
-
-function sliceForPage() {
-  const start = page * PER_PAGE;
-  return DepartmentsData.slice(start, start + PER_PAGE);
-}
-
 function makeCard(dept, i) {
-  const card = document.createElement("div");
-  card.className = "dept-card js-reveal";
-  card.style.setProperty("--delay", `${220 + i * 50}ms`);
-  card.innerHTML = `
-    <div class="dept-icon">${iconSVG(dept.icon)}</div>
-    <p class="dept-name"></p>
+  const slide = document.createElement("div");
+  slide.className = "swiper-slide dept-slide js-reveal";
+  slide.style.setProperty("--delay", `${220 + i * 50}ms`);
+  slide.innerHTML = `
+    <div class="dept-card">
+      <div class="dept-icon">${iconSVG(dept.icon)}</div>
+      <p class="dept-name">${dept.name}</p>
+    </div>
   `;
-  card.querySelector(".dept-name").textContent = dept.name;
-  return card;
-}
-
-function makePlaceholder(i) {
-  const ph = document.createElement("div");
-  ph.className = "dept-card dept-placeholder";
-  ph.style.opacity = "0";
-  ph.style.pointerEvents = "none";
-  // نخليها تاخذ مكانها بالشبكة بدون ما تبان
-  return ph;
-}
-
-// =======================
-// Render
-// =======================
-function renderSubtitle() {
-  const subtitle = byId("depts-subtitle");
-  if (!subtitle) return;
-  subtitle.textContent = `يضم المركز ${DepartmentsData.length} قسماً متخصصاً .. كل قسم مستقل ومتخصص في مجال عمل محدد`;
-  subtitle.style.setProperty("--delay", "140ms");
+  return slide;
 }
 
 function renderGrid() {
-  const grid = byId("depts-grid");
-  if (!grid) return;
+  const wrapper = document.getElementById("depts-slider-wrapper");
+  if (!wrapper) return;
+  wrapper.innerHTML = "";
+  DepartmentsData.forEach((dept, i) => {
+    wrapper.appendChild(makeCard(dept, i));
+  });
+}
 
-  grid.innerHTML = "";
+function renderSubtitle() {
+  const subtitle = document.getElementById("depts-subtitle");
+  if (!subtitle) return;
+  subtitle.textContent = `يضم المركز ${DepartmentsData.length} قسماً متخصصاً .. كل قسم مستقل ومتخصص في مجال عمل محدد`;
+}
 
-  const items = sliceForPage();
+function initSwiper() {
+  new Swiper(".deptsSwiper", {
+    slidesPerView: 1,
+    grid: {
+      rows: 1,
+      fill: 'row'
+    },
+    spaceBetween: 20,
+    loop: false,
+    navigation: {
+      nextEl: "#depts-next",
+      prevEl: "#depts-prev",
+    },
+    pagination: {
+      el: "#depts-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    breakpoints: {
+      400: {
+        slidesPerView: 2,
+        grid: {
+          rows: 1,
+          fill: 'row'
+        },
+      },
+      640: {
+        slidesPerView: 2,
+        grid: {
+          rows: 2,
+          fill: 'row'
+        },
+      },
+      1024: {
+        slidesPerView: 3,
+        grid: {
+          rows: 2,
+          fill: 'row'
+        },
+      },
+      1200: {
+        slidesPerView: 4,
+        grid: {
+          rows: 2,
+          fill: 'row'
+        },
+      },
+    },
+  });
+}
 
-  // render items
-  items.forEach((dept, i) => grid.appendChild(makeCard(dept, i)));
-
-  // ✅ إذا الصفحة الأخيرة أقل من 8 عناصر -> نضيف placeholders حتى تبقى 4×2
-  const missing = PER_PAGE - items.length;
-  for (let i = 0; i < missing; i++) {
-    grid.appendChild(makePlaceholder(i));
+function setupReveal() {
+  const els = Array.from(document.querySelectorAll(".js-reveal"));
+  if (!("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("is-visible"));
+    return;
   }
-}
-
-function setArrowState() {
-  // Arrow state is always enabled with looping, 
-  // but we could add visual feedback if needed.
-  const prev = byId("depts-prev");
-  const next = byId("depts-next");
-
-  if (prev) prev.disabled = false;
-  if (next) next.disabled = false;
-}
-
-function renderAll() {
-  clampPage();
-  renderSubtitle();
-  renderGrid();
-  setArrowState();
-  revealOnce(true);
-}
-
-// =======================
-// Arrows
-// =======================
-function wireArrows() {
-  const prev = byId("depts-prev");
-  const next = byId("depts-next");
-
-  if (prev) prev.addEventListener("click", () => { page--; renderAll(); });
-  if (next) next.addEventListener("click", () => { page++; renderAll(); });
-}
-
-// =======================
-// Reveal (once)
-// =======================
-function initObserver() {
-  if (!("IntersectionObserver" in window)) return null;
-  return new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
         e.target.classList.add("is-visible");
@@ -227,32 +194,12 @@ function initObserver() {
       }
     });
   }, { threshold: 0.15 });
+  els.forEach((el) => observer.observe(el));
 }
 
-function revealOnce(reobserveNew = false) {
-  const els = Array.from(document.querySelectorAll(".js-reveal"));
-
-  if (!("IntersectionObserver" in window)) {
-    els.forEach((el) => el.classList.add("is-visible"));
-    return;
-  }
-
-  if (!observer) observer = initObserver();
-  if (!observer) return;
-
-  if (reobserveNew) {
-    els.forEach((el) => {
-      if (!el.classList.contains("is-visible")) observer.observe(el);
-    });
-  } else {
-    els.forEach((el) => observer.observe(el));
-  }
-}
-
-// =======================
-// Init
-// =======================
 document.addEventListener("DOMContentLoaded", () => {
-  wireArrows();
-  renderAll();
+  renderSubtitle();
+  renderGrid();
+  initSwiper();
+  setupReveal();
 });
