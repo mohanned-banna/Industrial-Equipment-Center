@@ -63,9 +63,8 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgb(37 48 70 / 0.72);
+  background: linear-gradient(to right, rgb(61 98 172 / 62%), rgb(45 72 127 / 38%), transparent);
 }
-
 /* ── Content — centered ── */
 .slide-content {
   position: relative;

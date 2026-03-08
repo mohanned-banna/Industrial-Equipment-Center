@@ -12,7 +12,7 @@
 .gallery-section{
   direction: rtl;
   background: var(--gallery-bg);
-  padding: 28px 0 22px;
+  padding: 40px 0 28px;
 }
 
 .gallery-container{
@@ -21,33 +21,7 @@
   padding: 0 16px;
 }
 
-/* Title */
-.gallery-title-row{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 22px;
-  margin-bottom: 28px;
-}
-
-.gallery-title{
-  margin: 0;
-  color: var(--gallery-title);
-  font-size: 31px;
-  font-weight: 900;
-  line-height: 1;
-}
-
-.gallery-line{
-  width: 375px;
-  height: 2px;
-  background: var(--gallery-line);
-}
-
-@media (max-width: 920px){
-  .gallery-line{ width: 120px; }
-  .gallery-title{ font-size: 25px; }
-}
+/* Title classes handled globally in headerStyle.css */
 
 /* Slider */
 .gallery-slider-wrap {

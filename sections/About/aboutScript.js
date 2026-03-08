@@ -2,11 +2,11 @@
   // aboutScript.js (scoped)
 
   const dataAbout = {
-    title: "نبذة عن المركز",
+    title: "نبذة عن السوق",
     paragraphs: [
-      "يقدم مركز ربيع المعدات الصناعية خدمات متكاملة تشمل 12 قسم إلى أسماء.",
-      "نهدف لتقديم كل ما يخدم عملاءنا في جهة واحدة، مع أفضل المعدات الصناعية.",
-      "مما يجعل المركز وجهة آمنة تلبي احتياجات القطاع الصناعي المتنوع.",
+      "يقدم سوق العدد الصناعية خدمات متكاملة تشمل 12 قسم إلى أسماء.",
+      "نهدف لتقديم كل ما يخدم عملاءنا في جهة واحدة، مع أفضل العدد الصناعية.",
+      "مما يجعل السوق وجهة آمنة تلبي احتياجات القطاع الصناعي المتنوع.",
     ],
     features: [
         { label: "سهولة الوصول", icon: "access" },
@@ -62,7 +62,7 @@
 
   function renderHeader() {
     const titleEl = byId("about-title");
-    if (titleEl) titleEl.textContent = dataAbout.title || "نبذة عن المركز";
+    if (titleEl) titleEl.textContent = dataAbout.title || "نبذة عن السوق";
 
     const paras = Array.isArray(dataAbout.paragraphs)
       ? dataAbout.paragraphs

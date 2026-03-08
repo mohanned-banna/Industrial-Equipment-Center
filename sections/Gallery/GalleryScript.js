@@ -2,32 +2,32 @@
   const galleryData = [
     {
       id: 1,
-      url: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80",
+      url: "assets/first-hero.jpeg",
       alt: "المعرض 1",
     },
     {
       id: 2,
-      url: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1200&q=80",
+      url: "assets/second-hero.jpeg",
       alt: "المعرض 2",
     },
     {
       id: 3,
-      url: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+      url: "assets/first-hero.jpeg",
       alt: "المعرض 3",
     },
     {
       id: 4,
-      url: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
+      url: "assets/second-hero.jpeg",
       alt: "المعرض 4",
     },
     {
       id: 5,
-      url: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1200&q=80",
+      url: "assets/first-hero.jpeg",
       alt: "المعرض 5",
     },
     {
       id: 6,
-      url: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
+      url: "assets/second-hero.jpeg",
       alt: "المعرض 6",
     },
   ];
