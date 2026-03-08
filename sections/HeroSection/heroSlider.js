@@ -7,12 +7,12 @@
       subtitle: 'موقع واحد يضم نخبة من موردي المعدات الصناعية'
     },
     {
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80',
+      image: 'assets/second-hero.jpeg',
       title: 'أفضل المعدات الصناعية',
       subtitle: 'نوفر لك أحدث المعدات وأكثرها كفاءة من أبرز الموردين'
     },
     {
-      image: 'https://images.unsplash.com/photo-1565793979745-6d2c0a1f9f0b?w=1600&q=80',
+      image: 'assets/first-hero.jpeg',
       title: 'شركاء النجاح الصناعي',
       subtitle: 'نربطك بأفضل موردي المعدات الصناعية في المنطقة'
     }

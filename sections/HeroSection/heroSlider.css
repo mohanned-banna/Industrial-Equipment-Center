@@ -10,6 +10,18 @@ body {
   font-family: "Cairo", sans-serif;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+}
+
 /* ── Hero Section ── */
 #hero {
   position: relative;
@@ -46,12 +58,12 @@ body {
   background-position: center;
 }
 
-/* Dark blue overlay matching the screenshot */
+
 .slide-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(10, 25, 60, 0.72);
+  background: rgb(37 48 70 / 0.72);
 }
 
 /* ── Content — centered ── */
@@ -180,8 +192,9 @@ body {
 }
 
 .nav-arrow:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #f5a623;
   border-color: #f5a623;
+  color: #fff;
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -190,16 +203,52 @@ body {
   height: 24px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 2;
+  stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.nav-prev {
+.nav-prev, .nav-arrow.left {
   left: 20px;
 }
 
-.nav-next {
+.nav-next, .nav-arrow.right {
+  right: 20px;
+}
+
+/* ── Indicators ── */
+.indicators {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 10;
+}
+
+.dot {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    width 0.3s;
+  width: 8px;
+  padding: 0;
+}
+
+.dot.active {
+  background: #f5a623;
+  width: 24px;
+}
+
+
+
+
+.nav-next, .nav-arrow.right {
   right: 20px;
 }
 

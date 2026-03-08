@@ -13,30 +13,116 @@
 
 *{ box-sizing:border-box; }
 
-.depts {
-  direction: rtl;
-  padding: var(--section-padding);
-  color: var(--white);
-  background: radial-gradient(
-      600px 220px at 50% 18%,
-      rgba(255, 255, 255, 0.1),
-      transparent 60%
-    ),
-    radial-gradient(900px 420px at 50% 0%, rgba(0, 0, 0, 0.25), transparent 70%),
-    linear-gradient(180deg, var(--bg1), var(--bg2));
+/* DepartmentsSection.css */
+:root{
+  --bg1:#0b2f55;
+  --bg2:#082a4c;
+  --card:#163a5d;
+  --card2:#143457;
+  --stroke: rgba(255,255,255,.14);
+  --textDepartment: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.75);
+  --accent:#f5a623;
+  --shadow: rgba(0,0,0,.35);
 }
 
-.depts-wrap {
+*{ box-sizing:border-box; }
+
+.depts{
+  direction: rtl;
+  padding: 44px 0 36px;
+  color: var(--textDepartment);
+
+  /* نفس إحساس الصورة (تدرّج + إضاءة وسط) */
+  background:
+    radial-gradient(600px 220px at 50% 18%, rgba(255,255,255,.10), transparent 60%),
+    radial-gradient(900px 420px at 50% 0%, rgba(0,0,0,.25), transparent 70%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+}
+.dept-container{
+  width: 69%;
+  margin: 0 auto;
+  
+}
+.depts-wrap{
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 18px;
   text-align: center;
 }
 
+/* Title with lines */
+.depts-title-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+
+.depts-title{
+  margin:0;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing:.2px;
+  text-shadow: 0 2px 10px rgba(0,0,0,.25);
+}
+
+.depts-line{
+  height: 2px;
+  width: 360px;
+  background: rgba(255,255,255,.18);
+}
+
+@media (max-width: 900px){
+  .depts-title{ font-size: 28px; }
+  .depts-line{ width: 140px; }
+}
+
+.depts-subtitle{
+  margin: 0 auto 18px;
+  max-width: 900px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--muted);
+  font-weight: 700;
+}
+
 /* Slider wrapper with arrows */
-.depts-slider{
+.depts-slider-outer {
   position: relative;
-  margin-top: 12px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.depts-slider {
+  position: relative;
+  overflow: hidden; /* Keep swiper clipping */
+  min-height: 200px;
+}
+
+@media (min-width: 640px) {
+  .depts-slider {
+    min-height: 400px; 
+  }
+}
+
+.deptsSwiper {
+  width: 100%;
+  padding: 0 0 50px !important; 
+  height: auto;
+}
+
+.dept-slide {
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .dept-slide {
+    height: calc((100% - 20px) / 2) !important; 
+  }
 }
 
 /* arrows like screenshot */
@@ -47,68 +133,104 @@
   width: 44px;
   height: 44px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(0,0,0,.12);
-  color: rgba(255,255,255,.85);
-  font-size: 36px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(0,0,0,.3);
+  color: #fff;
+  font-size: 32px;
   line-height: 1;
   cursor: pointer;
   display: grid;
   place-items: center;
-  box-shadow: 0 10px 18px rgba(0,0,0,.25);
-  transition: transform .15s ease, background .15s ease, color .15s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+  transition: all 0.3s ease;
   user-select:none;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.nav-arrow svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .nav-arrow:hover{
-  background: rgba(0,0,0,.18);
+  background: #f5a623;
+  border-color: #f5a623;
   color: #fff;
-  transform: translateY(-50%) scale(1.04);
+  transform: translateY(-50%) scale(1.1);
 }
 
-.nav-arrow.left{ left: -6px; }
-.nav-arrow.right{ right: -6px; }
+.nav-arrow.left{ left: -70px; }
+.nav-arrow.right{ right: -70px; }
 
-@media (max-width: 900px){
-  .nav-arrow.left{ left: -2px; }
-  .nav-arrow.right{ right: -2px; }
-}
 
-/* Grid matches the screenshot: بطاقات مستطيلة بصفّين */
-.depts-grid{
-  display:grid;
-  gap: 14px;
-  padding: 0 56px; /* مساحة للأسهم */
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
 
-@media (max-width: 1100px){
-  .depts-grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
-}
-@media (max-width: 820px){
-  .depts-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0 48px; }
-}
-@media (max-width: 560px){
-  .depts-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 44px; }
-}
+
+
 
 /* Card style */
 .dept-card{
-  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 4px;
-  padding: 16px 10px 14px;
-  box-shadow: 0 18px 22px rgba(0,0,0,.22);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 24px 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   cursor: pointer;
-  transition: transform .16s ease, background .16s ease, border-color .16s ease;
-  min-height: 108px;
-  display:flex;
+  transition: all 0.3s ease;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 160px;
 }
+
+.dept-card:hover{
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.08));
+  border-color: rgba(255,255,255,.18);
+}
+
+.dept-icon{
+  width: 48px;
+  height: 48px;
+  display:grid;
+  place-items:center;
+  margin-bottom: 8px;
+}
+
+.dept-name{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 900;
+  color: rgba(255,255,255,.92);
+  text-shadow: 0 2px 10px rgba(0,0,0,.25);
+}
+
+/* Motion-like reveal */
+.js-reveal{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .5s ease, transform .5s ease;
+  transition-delay: var(--delay, 0ms);
+  will-change: opacity, transform;
+}
+.js-reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .js-reveal{ opacity:1; transform:none; transition:none; }
+}
+
 
 .dept-card:hover{
   transform: translateY(-2px);
