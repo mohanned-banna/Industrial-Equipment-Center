@@ -85,11 +85,15 @@
 }
 
 .about-icon{
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   margin: 0 auto 10px;
-  display: grid;
-  place-items: center;
+}
+
+.about-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .about-label{

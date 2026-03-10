@@ -1,8 +1,8 @@
 (() => {
   const contactData = {
     phone: "050-123.4567",
-    email: "info@example.com",
-    addressLabel: "رنية العثمني",
+    email: "info@itm-sa.com",
+    addressLabel: "حي النخيل - جده - المملكة العربية السعودية",
     hours: [
       "الأحد - الخميس : 8:00 ص - 8:00 م",
       "السبت : 9:00 ص - 6:00 م",
@@ -59,22 +59,24 @@
 
     wrap.innerHTML = `
       <div class="contact-info-item">
+      
       <div class="contact-info-value-icon">
         <div class="contact-info-icon">${iconSVG("phone")}</div>
-      <div class="contact-info-label">الصم</div>
+        <div class="contact-info-label">الصم</div>
       </div>
-      <div class="contact-info-value-icon">
+      <div class="contact-info-value-icon" id="contact-phone">
       <div class="contact-info-value">${contactData.phone}</div>
       <div class="contact-info-icon">${iconSVG("phone")}</div>
       </div>
+
       </div>
 
       <div class="contact-info-item">
       <div class="contact-info-value-icon">
-            <div class="contact-info-icon">${iconSVG("mail")}</div>
+            <div class="contact-info-icon">${iconSVG("pin")}</div>
       <div class="contact-info-label">${contactData.addressLabel}</div>
       </div>
-      <div class="contact-info-value-icon">
+      <div class="contact-info-value-icon" id="contact-email">
       <div class="contact-info-value">${contactData.email}</div>
       <div class="contact-info-icon">${iconSVG("mail")}</div>
       </div>

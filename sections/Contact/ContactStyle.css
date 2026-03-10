@@ -207,7 +207,7 @@
   font-size: 16px;
   font-weight: 900;
   color: rgba(255,255,255,.88);
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .contact-info-value{
@@ -246,3 +246,25 @@
     transition: none;
   }
 }
+
+
+  .contact-info-item{
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+  .contact-info{
+    align-items: center;
+  }
+  .contact-info-custom{
+    display: flex;
+    align-items: flex-start;
+  }
+  .contact-info-value-icon{
+    width: 100%;
+  }
+  #contact-phone,#contact-email{
+    justify-content: flex-end;
+  }
+
+

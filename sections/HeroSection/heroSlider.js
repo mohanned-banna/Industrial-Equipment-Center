@@ -3,7 +3,7 @@
   const slides = [
     {
       image: 'assets/first-hero.jpeg',
-      title: 'سوق بيع العدد الصناعية',
+      title: 'سوق العدد الصناعية',
       subtitle: 'موقع واحد يضم نخبة من موردي العدد الصناعية'
     },
     {
@@ -40,7 +40,7 @@
           <p class="slide-subtitle">${s.subtitle}</p>
           <div class="slide-buttons">
             <button class="btn btn-primary" onclick="scrollToSection('contact')">&#9658; تواصل معنا</button>
-            <button class="btn btn-secondary" onclick="scrollToSection('about')">&#9658; اعرف الموقع</button>
+            <button class="btn btn-secondary" onclick="scrollToSection('map')">&#9658; اعرف الموقع</button>
           </div>
         </div>
       </div>

@@ -1,9 +1,10 @@
 (() => {
   const mapData = {
     locationLabel: "المنطقة - الصناعية - المدينة",
-    directionsUrl: "https://maps.google.com/?q=21.543333,39.172779",
+    directionsUrl: "https://www.google.com/maps/place/%D8%B3%D9%88%D9%82+%D8%A7%D9%84%D8%B9%D8%AF%D8%AF+%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D9%8A%D8%A9%E2%80%AD/@21.5185334,39.2503431,17z/data=!3m1!4b1!4m6!3m5!1s0x15c3cd0087717f63:0x1e34227044a23ef8!8m2!3d21.5185334!4d39.2503431!16s%2Fg%2F11tcj73zc9!17m2!4m1!1e3!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDMwNC4xIKXMDSoASAFQAw%3D%3D",
     buildingImage:
-      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1400&q=80",
+      "assets/image-map.jpg",
+      mapEmbedUrl: "https://www.google.com/maps?q=21.5185334,39.2503431&hl=ar&z=17&output=embed"
   };
 
   function byId(id) {
@@ -14,6 +15,7 @@
     const label = byId("map-location-label");
     const button = byId("map-directions-btn");
     const image = byId("map-building-image");
+    const iframe = byId('map-iframe')
 
     if (label) {
       label.innerHTML = `
@@ -24,6 +26,9 @@
 
     if (button) {
       button.href = mapData.directionsUrl || "#";
+    }
+    if(iframe){
+      iframe.src = mapData.mapEmbedUrl || "#";
     }
 
     if (image && mapData.buildingImage) {
