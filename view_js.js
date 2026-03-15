@@ -82,7 +82,7 @@ const mapData = {
 };
 
 const contactData = {
-  phone: "050-123.4567",
+  phone: "+966 50 553 5649",
   email: "info@itm-sa.com",
   addressLabel: "حي النخيل - جده - المملكة العربية السعودية",
   hours: [
@@ -403,7 +403,7 @@ function initContact() {
   wrap.innerHTML = `
     <div class="contact-info-item">
       <div class="contact-info-value-icon"><div class="contact-info-icon">${icons.phone}</div><div class="contact-info-label">الهاتف</div></div>
-      <div class="contact-info-value-icon" id="contact-phone"><div class="contact-info-value">${contactData.phone}</div><div class="contact-info-icon">${icons.phone}</div></div>
+      <div class="contact-info-value-icon" id="contact-phone"><div class="contact-info-value" style="direction:ltr">${contactData.phone}</div><div class="contact-info-icon">${icons.phone}</div></div>
     </div>
     <div class="contact-info-item">
       <div class="contact-info-value-icon"><div class="contact-info-icon">${icons.pin}</div><div class="contact-info-label">${contactData.addressLabel}</div></div>
