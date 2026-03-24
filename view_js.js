@@ -230,7 +230,7 @@ function initHeroSlider() {
           <p class="slide-subtitle">${slide.subtitle}</p>
           <div class="slide-buttons">
             <button class="btn btn-primary" onclick="scrollToSection('contact')">&#9658; تواصل معنا</button>
-            <button class="btn btn-secondary" onclick="scrollToSection('map')">&#9658; اعرف الموقع</button>
+            <button class="btn btn-secondary" onclick="scrollToSection('map')">&#9658; الوصول للموقع</button>
           </div>
         </div>
       </div>
