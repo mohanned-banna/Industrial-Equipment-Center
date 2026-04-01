@@ -476,6 +476,7 @@ body {
   transform: translateY(20px);
   opacity: 0;
   transition: transform 0.5s ease 0.3s, opacity 0.5s ease 0.3s;
+  margin-top: 2rem;
 }
 
 .slide-buttons {
@@ -1000,6 +1001,15 @@ body {
   gap: 22px;
   margin-bottom: 26px;
 }
+.map-title-column {
+  display: flex;
+
+  justify-content: center;
+
+
+  flex-direction: column;
+}
+
 
 .map-title {
   margin: 0;
@@ -1007,6 +1017,10 @@ body {
   font-size: 31px;
   font-weight: 900;
   line-height: 1;
+}
+.map-title-subtitle{
+  display: flex;
+  flex-direction: column;
 }
 
 .map-line {
@@ -1021,6 +1035,7 @@ body {
 }
 
 .map-card {
+
   display: grid;
   grid-template-columns: 1fr 1.08fr;
   background: transparent;
@@ -1069,16 +1084,20 @@ body {
 }
 
 .map-location-label {
-  position: absolute;
-  top: 28px;
-  right: 24px;
-  color: #fff;
-  font-size: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #295a98d6;
+  font-size: 18px;
   font-weight: 900;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   text-shadow: 0 2px 8px rgba(0,0,0,.18);
+  margin-bottom: 2rem;
+  width: 100%;
+  
+
 }
 
 .label-arrow { color: var(--map-yellow); font-size: 18px; }
@@ -1086,29 +1105,30 @@ body {
 .map-directions-btn {
   position: absolute;
   bottom: 18px;
-  right: 38px;
-  min-width: 236px;
-  height: 50px;
-  padding: 0 22px;
+  left: 20px;
+
+  height: 35px;
+  padding: 0 15px;
   border-radius: 6px;
   background: linear-gradient(180deg, var(--map-yellow), var(--map-yellow-dark));
   color: #062748;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 900;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 5px;
   box-shadow: 0 8px 20px rgba(0,0,0,.18);
   transition: transform .16s ease, filter .16s ease;
+  opacity: 0.9;
 }
 
 .map-directions-btn:hover { transform: translateY(-1px); filter: brightness(1.03); }
 
 @media (max-width: 900px) {
   .map-location-label { top: 20px; right: 18px; font-size: 18px; }
-  .map-directions-btn { right: 18px; bottom: 16px; min-width: 210px; font-size: 18px; }
+  .map-directions-btn { left: 10px; bottom: 10px;  font-size: 14px; }
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
