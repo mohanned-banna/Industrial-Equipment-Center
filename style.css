@@ -486,6 +486,7 @@ body {
   transform: translateY(20px);
   opacity: 0;
   transition: transform 0.5s ease 0.4s, opacity 0.5s ease 0.4s;
+  margin-top: 2rem;
 }
 
 .slide.active .slide-title,
