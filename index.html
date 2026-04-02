@@ -265,15 +265,18 @@
         <form id="contact-form" class="contact-form" novalidate>
           <div class="contact-form-row">
             <div class="input-group">
-              <input id="contact-name" type="text" placeholder="الاسم" />
+              <input id="contact-name" type="text" placeholder="الاسم * " required />
+              <span class="contact-hint">الحد الأدنى 3 أحرف</span>
             </div>
             <div class="input-group">
-              <input id="contact-subject" type="text" placeholder="الموضوع" />
+              <input id="contact-phoneNumber" type="text" placeholder="رقم الجوال * " required>
+              <span class="contact-hint">مثال: 05xxxxxxxx</span>
             </div>
           </div>
 
-          <div class="input-group textarea-group">
+          <div id="textarea-group" class="input-group textarea-group">
             <textarea id="contact-message" placeholder="الرسالة"></textarea>
+            <span class="contact-hint">الحد الأدنى 10 أحرف</span>
           </div>
 
           <div class="contact-submit-row">

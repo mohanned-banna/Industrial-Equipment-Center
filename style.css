@@ -1206,9 +1206,10 @@ body {
   min-height: 132px;
   max-height: 260px;
   resize: vertical;
-  margin-bottom: 12px;
 }
-
+#textarea-group{
+  margin-bottom: 12px !important;
+}
 .contact-submit-row { display: flex; justify-content: flex-start; }
 
 .contact-submit-btn {
@@ -1236,6 +1237,11 @@ body {
   flex-direction: column;
   gap: 20px;
   padding-top: 10px;
+}
+.contact-hint{
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.502);
 }
 
 .contact-info-item {

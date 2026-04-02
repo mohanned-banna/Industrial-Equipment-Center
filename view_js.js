@@ -86,7 +86,6 @@ const contactData = {
   addressLabel: "حي النخيل - جده - المملكة العربية السعودية",
   hours: [
     "الأحد - الخميس : 8:00 ص - 8:00 م",
-    "السبت : 9:00 ص - 6:00 م",
   ],
 };
 
@@ -402,11 +401,15 @@ function initContact() {
   wrap.innerHTML = `
     <div class="contact-info-item">
       <div class="contact-info-value-icon"><div class="contact-info-icon">${icons.phone}</div><div class="contact-info-label">الهاتف</div></div>
-      <div class="contact-info-value-icon" id="contact-phone"><div class="contact-info-value" style="direction:ltr">${contactData.phone}</div><div class="contact-info-icon">${icons.phone}</div></div>
+      <div class="contact-info-value-icon" id="contact-phone"><div class="contact-info-value" style="direction:ltr">${contactData.phone}</div></div>
+    </div>
+    <div class="contact-info-item">
+
+<div class="contact-info-value-icon"><div class="contact-info-icon">${icons.mail}</div><div class="contact-info-label">البريد الإلكتروني</div></div>
+      <div class="contact-info-value-icon" id="contact-email"><div class="contact-info-value">${contactData.email}</div></div>
     </div>
     <div class="contact-info-item">
       <div class="contact-info-value-icon"><div class="contact-info-icon">${icons.pin}</div><div class="contact-info-label">${contactData.addressLabel}</div></div>
-      <div class="contact-info-value-icon" id="contact-email"><div class="contact-info-value">${contactData.email}</div><div class="contact-info-icon">${icons.mail}</div></div>
     </div>
     <div class="contact-info-item">
       <div class="contact-info-value-icon"><div class="contact-info-icon">${icons.time}</div><div class="contact-info-value small">${contactData.hours.map(h => `<div>${h}</div>`).join("")}</div></div>
